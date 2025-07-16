@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= pageTitle %></title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <% if (typeof path === 'undefined'){ %> <%- include('../404.ejs'); %> <% }
+    else { %>
+    <header
+      class="w-full h-32 bg-blue-400 p-5 font-bold flex flex-col justify-between"
+    >
+      <h1 class="text-4xl">Unit Converter</h1>
+      <ul class="flex gap-5">
+        <li><a href="/converter/length">Length</a></li>
+        <li><a href="/">Weigth</a></li>
+        <li><a href="/">Temperature</a></li>
+      </ul>
+    </header>
+    <% if (path === '/converter/length') { %> <%- include('../CLength.ejs') %>
+    <% } %> <% } %>
+  </body>
+</html>

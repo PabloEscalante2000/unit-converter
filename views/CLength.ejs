@@ -1,0 +1,61 @@
+<div class="w-full h-[calc(100dvh_-_128px)] flex justify-center items-center">
+  <main
+    class="py-3 w-full max-w-96 mx-auto my-5 px-5 py-10 border-2 rounded-lg shadow-lg border-blue-400"
+  >
+    <% if(!aviable) { %>
+    <form
+      class="flex flex-col gap-3 text"
+      action="/converter/length"
+      method="GET"
+      id="lenght-form"
+    >
+      <label>Enter the lenght to convert</label>
+      <input
+        class="px-3 py-1 border-2 border-blue-400 rounded-full outline-none"
+        type="number"
+        name="unit"
+        required
+      />
+      <label>Unit to Convert from</label>
+      <select
+        class="px-3 py-1 rounded-full border-blue-400 bg-blue-400 text-white"
+        name="from"
+      >
+        <option value="none">-- select --</option>
+        <option value="mm">millimeter</option>
+        <option value="cm">centimeter</option>
+        <option value="m">meter</option>
+        <option value="km">kilometer</option>
+        <option value="in">inch</option>
+        <option value="ft">foot</option>
+        <option value="yd">yard</option>
+        <option value="mi">mile</option>
+      </select>
+      <label>Unit to Convert to</label>
+      <select
+        class="px-3 py-1 rounded-full border-blue-400 bg-blue-400 text-white"
+        name="to"
+      >
+        <option value="none">-- select --</option>
+        <option value="mm">millimeter</option>
+        <option value="cm">centimeter</option>
+        <option value="m">meter</option>
+        <option value="km">kilometer</option>
+        <option value="in">inch</option>
+        <option value="ft">foot</option>
+        <option value="yd">yard</option>
+        <option value="mi">mile</option>
+      </select>
+      <input
+        class="mt-3 px-3 py-1 rounded-full bg-blue-400 border-2 border-blue-500 text-white cursor-pointer transition-all duration-300 hover:scale-95"
+        type="submit"
+        value="Convert"
+      />
+    </form>
+    <% } else { %>
+    <h1>Result of your calculation</h1>
+    <h2><%= unit %><%= from %> = <%= response %><%= to %></h2>
+    <form></form>
+    <% } %>
+  </main>
+</div>
